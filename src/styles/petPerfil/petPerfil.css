@@ -33,7 +33,6 @@
 .especie-row {
     display: flex;
     flex-direction: row;
-    width: 100%;
     margin-left: 20px;
     font-weight: bold;
     font-size: 18px;
@@ -49,7 +48,6 @@
 .genero-row {
     display: flex;
     flex-direction: row;
-    width: 100%;
     margin-left: 20px;
     font-weight: bold;
     font-size: 18px;
@@ -65,7 +63,6 @@
 .raca {
     display: flex;
     flex-direction: row;
-    width: 100%;
     margin-left: 20px;
     font-weight: bold;
     font-size: 18px;
