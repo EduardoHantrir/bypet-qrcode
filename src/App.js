@@ -3,7 +3,7 @@ import PetPerfil from './pages/perfilPet/petPerfil'
 
 function App() {
   return (
-    <Router basename="/bypet-qrcode">
+    <Router>
       <Routes>
         <Route path="/pet/:petId" element={<PetPerfil />} />
       </Routes>
