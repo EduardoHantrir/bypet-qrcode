@@ -1,0 +1,81 @@
+.carousel-conteiner {
+    display: flex;
+    height: 100vh;
+    width: 100vw; 
+}
+
+
+.carousel-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card {
+    transition: height 0.3s ease-in-out;
+    height: 15%;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    background-color: white;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.card.active {
+    height: 55%;
+}
+
+.title {
+    text-align: center;
+}
+
+.especie-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.especie-row img {
+    align-self: center;
+    height: 40px;
+}
+
+.genero-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.genero-row img {
+    height: 40px;
+    align-self: center;
+}
+
+.raca {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.descricao {
+    font-size: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+}
