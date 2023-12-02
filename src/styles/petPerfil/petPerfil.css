@@ -76,3 +76,24 @@
     margin-right: 25px;
     margin-top: 10px;
 }
+
+.loading {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F1F8FF;
+}
+
+.loading img {
+    height: 500px;
+    max-height: 35%;
+}
+
+.loading p {
+    font-size: 45px;
+    font-weight: bolder;
+    color: #01767C;
+}

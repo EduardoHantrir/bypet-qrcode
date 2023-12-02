@@ -1,3 +1,4 @@
+// Importando os componentes necessários do Firebase
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
@@ -13,10 +14,11 @@ const firebaseConfig = {
     measurementId: "G-LS2W4CMKE7",
 };
 
-// Initialize Firebase
+// Inicializando o Firebase com as configurações fornecidas
 const app = initializeApp(firebaseConfig);
 
-// Get a Firestore instance
+// Obtendo uma instância do Firestore
 export const db = getFirestore(app);
 
+// Obtendo uma instância do Firebase Storage
 export const storage = getStorage(app)

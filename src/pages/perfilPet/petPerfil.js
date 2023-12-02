@@ -1,3 +1,4 @@
+// Importando os componentes necessários do React e React Router
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, doc, getDocs, query, where, getDoc } from 'firebase/firestore';
@@ -8,17 +9,23 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import InfoItem from '../../component/card';
 import '../../styles/petPerfil/petPerfil.css'
 
+// Definindo o componente PetPerfil
 const PetPerfil = () => {
+  // Obtendo o id do pet dos parâmetros da URL
   const { petId } = useParams();
+  // Definindo o estado inicial para os dados do post e do pet
   const [data, setData] = useState(null);
   const [dataPet, setDataPet] = useState([])
 
+  // Usando o hook useEffect para buscar os posts e os dados do pet quando o componente é montado
   useEffect(() => {
     const fetchPosts = async () => {
+      // Buscando os posts do pet no Firestore
       const q = query(collection(db, 'post'), where('petId', '==', petId));
       const querySnapshot = await getDocs(q);
       const posts = await Promise.all(querySnapshot.docs.map(async doc => {
         const postData = doc.data();
+        // Buscando a URL da imagem do post no Firebase Storage
         const imageRef = ref(storage, postData.endereco);
         const imageUrl = await getDownloadURL(imageRef);
         return { id: doc.id, imageUrl, ...postData };
@@ -27,7 +34,8 @@ const PetPerfil = () => {
     };
 
     const fetchPetData = async (petId) => {
-      const docRef = doc(db, 'pet', petId); // Substitua 'pets' pela sua coleção
+      // Buscando os dados do pet no Firestore
+      const docRef = doc(db, 'pet', petId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -44,6 +52,7 @@ const PetPerfil = () => {
 
   return (
     <div className='pet-profile'>
+      {/* Renderizando o carrossel de imagens e o componente InfoItem se os dados existirem */}
       {data && data.length > 0 ? (
         <>
           <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
@@ -56,7 +65,12 @@ const PetPerfil = () => {
           <InfoItem data={dataPet} />
         </>
       ) : (
-        <p>Loading...</p>
+        <>
+          <div className='loading'>
+            <img src={require('../../assets/icons/BY PET LOGO 3 1.png')} alt='logo BY PET' className='logo' />
+            <p>Carregando</p>
+          </div>
+        </>
       )}
     </div>
   );
